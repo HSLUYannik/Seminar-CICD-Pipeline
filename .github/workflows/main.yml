@@ -1,0 +1,37 @@
+name: CI/CD Pipeline
+
+on: 
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Test
+      run: npm run test
+      
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Deploy Application to Server
+    	  uses: easingthemes/ssh-deploy@v2.1.13
+     	  with:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USERNAME: ${{ secrets.USERNAME }}
+	        target: ${{ secrets.target }}
+	        source: "dist/"
