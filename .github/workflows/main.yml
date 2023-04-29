@@ -33,7 +33,6 @@ jobs:
     	  uses: easingthemes/ssh-deploy@v2.1.13
      	  with:
           HOST: ${{ secrets.HOST }}
-          PORT: ${{ secrets.PORT }}
           USERNAME: ${{ secrets.USERNAME }}
-	        target: ${{ secrets.target }}
-	        source: "dist/"
+	  target: ${{ secrets.target }}
+	  source: " "
