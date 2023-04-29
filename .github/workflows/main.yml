@@ -32,7 +32,6 @@ jobs:
       - name: Deploy Application to Server
     	  uses: easingthemes/ssh-deploy@v2.1.13
      	  with:
+	  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
           HOST: ${{ secrets.HOST }}
           USERNAME: ${{ secrets.USERNAME }}
-	  target: ${{ secrets.target }}
-	  source: " "
