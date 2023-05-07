@@ -1,1 +1,1 @@
-# Seminar-CICD-Pipeline
+# Example GitHub Repository
